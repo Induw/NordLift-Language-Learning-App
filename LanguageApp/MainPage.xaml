@@ -1,46 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LanguageApp.MainPage">
+             x:Class="LanguageApp.MainPage"
+             BackgroundColor="#F5FFFA">
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="30">
-
+        <VerticalStackLayout Padding="20" Spacing="30" VerticalOptions="Start">
             <Label Text="Welcome to LingoLift!"
-                   FontSize="Large"
+                   FontSize="32"
                    FontAttributes="Bold"
-                   HorizontalOptions="Center" 
                    HorizontalTextAlignment="Center"
-                   Margin="0,20,0,10" />
+                   TextColor="#191970" 
+                   FontFamily="Segoe UI, sans-serif"/>
 
-            <Image Source="mainpic.png"
-                   HeightRequest="150"
-                   Aspect="AspectFit"
-                   HorizontalOptions="Center" />
-
-            <Button Text="Vocabulary Flashcards"
-                    FontSize="Medium"
-                    BackgroundColor="#3B82F6"
+                <Button Text="Vocabulary Flashcards"
+                    FontSize="18"
+                    BackgroundColor="#6495ED" 
                     TextColor="White"
-                    CornerRadius="10"
+                    CornerRadius="15"
                     Padding="15"
+                    FontAttributes="Bold"
                     Command="{Binding NavigateToFlashcardsCommand}" />
 
-            <Button Text="Daily Challenges"
-                    FontSize="Medium"
-                    BackgroundColor="#10B981"
-                    TextColor="White"
-                    CornerRadius="10"
+                <Button Text="Daily Challenges"
+                    FontSize="18"
+                    BackgroundColor="#87CEFA" 
+                        TextColor="White"
+                    CornerRadius="15"
                     Padding="15"
+                    FontAttributes="Bold"
                     Command="{Binding NavigateToChallengesCommand}" />
 
-            <Button Text="Progress Tracker"
-                    FontSize="Medium"
-                    BackgroundColor="#EF4444"
+                <Button Text="Progress Tracker"
+                    FontSize="18"
+                    BackgroundColor="#4682B4" 
                     TextColor="White"
-                    CornerRadius="10"
+                    CornerRadius="15"
                     Padding="15"
+                    FontAttributes="Bold"
                     Command="{Binding NavigateToProgressCommand}" />
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

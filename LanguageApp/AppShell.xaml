@@ -5,8 +5,7 @@
        Title="LanguageApp"
        x:Class="LanguageApp.AppShell">
 
-    <ShellContent Title="Main"
-                  ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
 
     <ShellContent Title="Flashcards"
                   ContentTemplate="{DataTemplate views:FlashCardsPage}" />

@@ -91,8 +91,8 @@ namespace LanguageApp.Views
         private async void OnTranslateClicked(object sender, EventArgs e)
         {
             var word = words[currentWordIndex];
-
-            var translation = await GetTranslationAsync(word, "en", "sv"); //English to Swedish
+            var CurrentLanguage = Preferences.Get("SelectedLanguage", "sv");
+            var translation = await GetTranslationAsync(word, "en", CurrentLanguage); 
             if (string.IsNullOrEmpty(translation))
             {
                 await DisplayAlert("Error", "Failed to fetch translation.", "OK");
@@ -118,13 +118,14 @@ namespace LanguageApp.Views
 
         private async Task RotateFlashcard(string word, string translation)
         {
-            // Rotate out (front side)
             await FlashcardFrame.RotateYTo(90, 250);
+
             FlashcardLabel.Text = translation; // Show translation
             FlashcardLabel.TextColor = Colors.Black;
 
-            // Rotate back in (back side)
-            await FlashcardFrame.RotateYTo(0, 250);
+            await FlashcardFrame.RotateYTo(180, 250);
+
+            FlashcardFrame.RotationY = 0;
         }
         private Color GetRandomColor()
         {

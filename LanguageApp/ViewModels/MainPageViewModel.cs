@@ -15,6 +15,7 @@ namespace LanguageApp.ViewModels
             "Swedish",
             "Norwegian",
             "Finnish",
+            "Danish",
             "Icelandic"
         };
 
@@ -32,6 +33,7 @@ namespace LanguageApp.ViewModels
                         "Swedish" => "sv",
                         "Norwegian" => "no",
                         "Finnish" => "fi",
+                        "Danish" => "da",
                         "Icelandic" => "is",
                         _ => "sv"
                     };
@@ -58,7 +60,7 @@ namespace LanguageApp.ViewModels
 
         private async void OnNavigateToChallenges()
         {
-            await Shell.Current.GoToAsync(nameof(ChallengesPage));
+            await Shell.Current.GoToAsync(nameof(SpeakingPracticePage));
         }
 
         private async void OnNavigateToProgress()

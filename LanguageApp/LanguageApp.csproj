@@ -64,6 +64,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.42.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
@@ -72,11 +73,14 @@
 	  <Compile Update="MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\TypingPage.xaml.cs">
+	    <DependentUpon>TypingPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\FlashCardsPage.xaml.cs">
 	    <DependentUpon>FlashCardsPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ChallengesPage.xaml.cs">
-	    <DependentUpon>ChallengesPage.xaml</DependentUpon>
+	  <Compile Update="Views\SpeakingPracticePage.xaml.cs">
+	    <DependentUpon>SpeakingPracticePage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\ProgressPage.xaml.cs">
 	    <DependentUpon>ProgressPage.xaml</DependentUpon>
@@ -87,7 +91,7 @@
 	  <MauiXaml Update="Views\FlashCardsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ChallengesPage.xaml">
+	  <MauiXaml Update="Views\SpeakingPracticePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProgressPage.xaml">

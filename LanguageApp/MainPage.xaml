@@ -35,7 +35,7 @@
                 Margin="0,50,0,0"
                 Command="{Binding NavigateToFlashcardsCommand}" />
 
-            <Button Text="Daily Challenges"
+            <Button Text="Type to Learn!"
                 FontSize="18"
                 BackgroundColor="#87CEFA" 
                 TextColor="White"

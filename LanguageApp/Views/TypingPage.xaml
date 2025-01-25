@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LanguageApp.Views.TypingPage"
+             Title="Typing Practice">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="20">
+            
+            <Label Text="Translate this word:"
+                   FontSize="18"
+                   FontAttributes="Bold" />
+            <Label x:Name="WordLabel"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="DarkBlue" />
+
+            <Entry x:Name="UserEntry"
+                   Placeholder="Type the translation here"
+                   FontSize="18"
+                   HorizontalOptions="Fill" />
+
+            <Label x:Name="FeedbackLabel"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"
+                   IsVisible="False" />
+
+            <Button Text="Submit"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Clicked="OnSubmitClicked"
+                    FontAttributes="Bold" />
+            <Button Text="Next Word"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    IsEnabled="False"
+                    x:Name="NextWordButton"
+                    Clicked="OnNextWordClicked"
+                    FontAttributes="Bold" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

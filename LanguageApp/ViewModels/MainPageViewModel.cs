@@ -60,7 +60,7 @@ namespace LanguageApp.ViewModels
 
         private async void OnNavigateToChallenges()
         {
-            await Shell.Current.GoToAsync(nameof(SpeakingPracticePage));
+            await Shell.Current.GoToAsync(nameof(TypingPage));
         }
 
         private async void OnNavigateToProgress()

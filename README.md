@@ -1,2 +1,2 @@
-# LingoLift 
-A Language Learning App designed using .NET MAUI to learn many different languages. There are Vocubulary Flashcards, Daily Challenges and a Progress Tracker 
+# NordLift 
+A Language Learning App designed using .NET MAUI to learn many different Nordic languages. There are Vocubulary Flashcards, Translations and a Progress Tracker 

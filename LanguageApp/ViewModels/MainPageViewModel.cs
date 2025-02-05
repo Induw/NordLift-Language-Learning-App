@@ -8,7 +8,25 @@ namespace LanguageApp.ViewModels
 {
     public class MainPageViewModel : ObservableObject
     {
-        private string _selectedLanguage;
+        private double _pickerFontSize = 18; 
+        public double PickerFontSize
+        {
+            get => _pickerFontSize;
+            set => SetProperty(ref _pickerFontSize, value);
+        }
+
+        private string? _selectedLanguage;
+        private string ?_selectedFlag;
+        public bool IsFlagVisible => !string.IsNullOrEmpty(SelectedFlag);
+
+        private readonly Dictionary<string, string> LanguageFlags = new()
+        {
+            { "Swedish", "sweden_flag.png" },
+            { "Norwegian", "norway_flag.png" },
+            { "Finnish", "finland_flag.png" },
+            { "Danish", "denmark_flag.png" },
+            { "Icelandic", "iceland_flag.png" }
+        };
 
         public ObservableCollection<string> Languages { get; } = new()
         {
@@ -19,7 +37,7 @@ namespace LanguageApp.ViewModels
             "Icelandic"
         };
 
-        public string SelectedLanguage
+        public string ?SelectedLanguage
         {
             get => _selectedLanguage;
             set
@@ -28,6 +46,7 @@ namespace LanguageApp.ViewModels
 
                 if (!string.IsNullOrEmpty(value))
                 {
+                    PickerFontSize = string.IsNullOrEmpty(value) ? 14 : 22;
                     var languageCode = value switch
                     {
                         "Swedish" => "sv",
@@ -39,6 +58,19 @@ namespace LanguageApp.ViewModels
                     };
 
                     Preferences.Set("SelectedLanguage", languageCode);
+                    LanguageFlags.TryGetValue(value, out var flag);
+                    SelectedFlag = flag;
+                }
+            }
+        }
+        public string? SelectedFlag
+        {
+            get => _selectedFlag;
+            private set
+            {
+                if (SetProperty(ref _selectedFlag, value))
+                {
+                    OnPropertyChanged(nameof(IsFlagVisible));
                 }
             }
         }

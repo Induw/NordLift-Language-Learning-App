@@ -10,5 +10,6 @@ namespace LanguageApp
             InitializeComponent();
             BindingContext = new MainPageViewModel();
         }
+
     }
 }

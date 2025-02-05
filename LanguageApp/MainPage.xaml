@@ -4,8 +4,8 @@
              x:Class="LanguageApp.MainPage"
              BackgroundColor="#F5FFFA">
     <ScrollView>
-        <StackLayout Padding="20" Spacing="30" VerticalOptions="Start">
-            <Label Text="Welcome to NordLift!"
+        <StackLayout Padding="20" Spacing="20" VerticalOptions="Start">
+            <Label Text="NordLift"
                 FontSize="32"
                 FontAttributes="Bold"
                 HorizontalTextAlignment="Center"
@@ -16,14 +16,22 @@
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"
                 TextColor="#4169E1"
-                Margin="0,-25,0,0" />
+                Margin="0,-20,0,0" />
+            
             <Picker x:Name="LanPicker"  
                 Title="What Language do you want to Learn?"
                 HorizontalTextAlignment="Center"
+                FontSize="{Binding PickerFontSize}"
                 ItemsSource="{Binding Languages}"
-                SelectedItem="{Binding SelectedLanguage}">
-            </Picker>
-                    
+                SelectedItem="{Binding SelectedLanguage}"/>
+
+            <Image Source="{Binding SelectedFlag}"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Margin="0,-45,0,-80"
+                   HorizontalOptions="Center"
+                   IsVisible="{Binding IsFlagVisible}" />
+
             <Button Text="Vocabulary Flashcards"
                 FontSize="18"
                 BackgroundColor="#6495ED" 

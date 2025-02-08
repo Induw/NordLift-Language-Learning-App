@@ -16,25 +16,26 @@ namespace LanguageApp.ViewModels
         }
 
         private string? _selectedLanguage;
-        private string ?_selectedFlag;
+        private string _selectedFlag = "default_flag.png";
         public bool IsFlagVisible => !string.IsNullOrEmpty(SelectedFlag);
 
         private readonly Dictionary<string, string> LanguageFlags = new()
         {
-            { "Swedish", "sweden_flag.png" },
-            { "Norwegian", "norway_flag.png" },
-            { "Finnish", "finland_flag.png" },
-            { "Danish", "denmark_flag.png" },
-            { "Icelandic", "iceland_flag.png" }
+            { "Swedish (Svenska)", "sweden_flag.png" },
+            { "Norwegian (Nosrk)", "norway_flag.png" },
+            { "Finnish (Suomi)", "finland_flag.png" },
+            { "Danish (Dansk)", "denmark_flag.png" },
+            { "Icelandic (Íslenska)", "iceland_flag.png" }
+
         };
 
         public ObservableCollection<string> Languages { get; } = new()
         {
-            "Swedish",
-            "Norwegian",
-            "Finnish",
-            "Danish",
-            "Icelandic"
+            "Swedish (Svenska)",
+            "Norwegian (Nosrk)",
+            "Finnish (Suomi)",
+            "Danish (Dansk)",
+            "Icelandic (Íslenska)"
         };
 
         public string ?SelectedLanguage
@@ -49,11 +50,11 @@ namespace LanguageApp.ViewModels
                     PickerFontSize = string.IsNullOrEmpty(value) ? 14 : 22;
                     var languageCode = value switch
                     {
-                        "Swedish" => "sv",
-                        "Norwegian" => "no",
-                        "Finnish" => "fi",
-                        "Danish" => "da",
-                        "Icelandic" => "is",
+                        "Swedish (Svenska)" => "sv",
+                        "Norwegian (Nosrk)" => "no",
+                        "Finnish (Suomi)" => "fi",
+                        "Danish (Dansk)" => "da",
+                        "Icelandic (Íslenska)" => "is",
                         _ => "sv"
                     };
 
@@ -68,7 +69,7 @@ namespace LanguageApp.ViewModels
             get => _selectedFlag;
             private set
             {
-                if (SetProperty(ref _selectedFlag, value))
+                if (SetProperty(ref _selectedFlag, value ?? "default_flag.png"))
                 {
                     OnPropertyChanged(nameof(IsFlagVisible));
                 }

@@ -11,7 +11,7 @@
                 HorizontalTextAlignment="Center"
                 TextColor="#191970" 
                 FontFamily="Segoe UI, sans-serif"/>
-            <Label Text="Master Nordic languages, one word at a time."
+            <Label 
                 FontSize="17"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"
@@ -19,18 +19,18 @@
                 Margin="0,-20,0,0" />
             
             <Picker x:Name="LanPicker"  
-                Title="What Language do you want to Learn?"
+                Title="Pick your Nordic Language to master!"
                 HorizontalTextAlignment="Center"
                 FontSize="{Binding PickerFontSize}"
                 ItemsSource="{Binding Languages}"
                 SelectedItem="{Binding SelectedLanguage}"/>
 
             <Image Source="{Binding SelectedFlag}"
-                   HeightRequest="200"
-                   WidthRequest="200"
-                   Margin="0,-45,0,-80"
+                   HeightRequest="120"
+                   WidthRequest="120"
+                   Margin="0,-15,0,-55"
                    HorizontalOptions="Center"
-                   IsVisible="{Binding IsFlagVisible}" />
+                    />
 
             <Button Text="Vocabulary Flashcards"
                 FontSize="18"
@@ -39,15 +39,15 @@
                 CornerRadius="15"
                 Padding="15"
                 FontAttributes="Bold"
-                HeightRequest="100"
+                HeightRequest="90"
                 Margin="0,50,0,0"
                 Command="{Binding NavigateToFlashcardsCommand}" />
 
-            <Button Text="Type to Learn!"
+            <Button Text="Translate to Learn!"
                 FontSize="18"
                 BackgroundColor="#87CEFA" 
                 TextColor="White"
-                HeightRequest="100"
+                HeightRequest="90"
                 CornerRadius="15"
                 Padding="15"
                 FontAttributes="Bold"
@@ -58,7 +58,7 @@
                 BackgroundColor="#4682B4" 
                 TextColor="White"
                 CornerRadius="15"
-                HeightRequest="100"
+                HeightRequest="90"
                 Padding="15"
                 FontAttributes="Bold"
                 Command="{Binding NavigateToProgressCommand}" />

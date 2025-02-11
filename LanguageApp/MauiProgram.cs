@@ -11,8 +11,8 @@ namespace LanguageApp
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("SegoeUI.ttf", "SegoeUI");
+                    fonts.AddFont("SegoeUI-Bold.ttf", "SegoeUIBold");
                 });
 
 #if DEBUG

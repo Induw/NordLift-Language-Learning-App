@@ -2,25 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LanguageApp.Views.TypingPage"
-             Title="Typing Practice">
+             Title="Translate and Learn">
     <ContentPage.Content>
         <StackLayout Padding="20" Spacing="20">
             
-            <Label Text="Translate this word:"
+            <Label Text="Try translating the word/phrase below:"
                    FontSize="18"
                    FontAttributes="Bold" />
             <Label x:Name="WordLabel"
-                   FontSize="24"
+                   FontSize="40"
                    HorizontalOptions="Center"
-                   TextColor="DarkBlue" />
+                   TextColor="DarkBlue"
+                   Margin="40"/>
 
             <Entry x:Name="UserEntry"
-                   Placeholder="Type the translation here"
-                   FontSize="18"
+                   Placeholder="Type the translation here."
+                   FontSize="20"
                    HorizontalOptions="Fill" />
 
             <Label x:Name="FeedbackLabel"
-                   FontSize="16"
+                   FontSize="20"
                    TextColor="Gray"
                    HorizontalOptions="Center"
                    IsVisible="False" />
@@ -29,14 +30,19 @@
                     BackgroundColor="#4CAF50"
                     TextColor="White"
                     Clicked="OnSubmitClicked"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Margin="10"/>
+
             <Button Text="Next Word"
                     BackgroundColor="#2196F3"
                     TextColor="White"
                     IsEnabled="False"
                     x:Name="NextWordButton"
                     Clicked="OnNextWordClicked"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

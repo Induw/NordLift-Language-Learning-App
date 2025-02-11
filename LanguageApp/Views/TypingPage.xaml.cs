@@ -12,11 +12,10 @@ namespace LanguageApp.Views
             { "Ja", "Yes" },
             { "Nej", "No" },
             { "Tack", "Thank you" },
-            { "F�rl�t", "Sorry" },
+            { "Förlåt", "Sorry" },
             { "God morgon", "Good morning" },
             { "God natt", "Good night" },
-            { "Hej d�", "Goodbye" }
-            // Add more words as needed
+            { "Hej då", "Goodbye" }
         };
 
         private readonly Random random = new();
@@ -30,15 +29,16 @@ namespace LanguageApp.Views
 
         private void LoadNextWord()
         {
-            //Ensure that the key and value are properly paired
+            
             var keys = new List<string>(WordTranslations.Keys);
             var randomKey = keys[random.Next(keys.Count)];
             currentWord = new KeyValuePair<string, string>(randomKey, WordTranslations[randomKey]);
 
-            WordLabel.Text = currentWord.Key; //Display the word in the Nordic language
+            WordLabel.Text = currentWord.Key; 
             FeedbackLabel.IsVisible = false;
             UserEntry.Text = string.Empty;
             NextWordButton.IsEnabled = false;
+            NextWordButton.Opacity = NextWordButton.IsEnabled ? 1.0 : 0.5;
         }
 
         private void OnSubmitClicked(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace LanguageApp.Views
 
             if (string.IsNullOrEmpty(userInput))
             {
-                FeedbackLabel.Text = "Please enter a translation.";
+                FeedbackLabel.Text = "Come on, type something, don't worry about getting it wrong!😀";
                 FeedbackLabel.TextColor = Colors.Red;
                 FeedbackLabel.IsVisible = true;
                 return;
@@ -55,14 +55,14 @@ namespace LanguageApp.Views
 
             if (string.Equals(userInput, currentWord.Value, StringComparison.OrdinalIgnoreCase))
             {
-                FeedbackLabel.Text = "Correct!";
+                FeedbackLabel.Text = "Correct!👍 You're killing it!🤩";
                 FeedbackLabel.TextColor = Colors.Green;
                 FeedbackLabel.IsVisible = true;
                 NextWordButton.IsEnabled = true;
             }
             else
             {
-                FeedbackLabel.Text = $"Incorrect. The correct translation is: {currentWord.Value}.";
+                FeedbackLabel.Text = $"Incorrect !👎🙄. The correct translation is: {currentWord.Value}.";
                 FeedbackLabel.TextColor = Colors.Red;
                 FeedbackLabel.IsVisible = true;
             }

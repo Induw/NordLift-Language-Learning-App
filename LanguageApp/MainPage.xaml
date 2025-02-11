@@ -6,33 +6,42 @@
     <ScrollView>
         <StackLayout Padding="20" Spacing="20" VerticalOptions="Start">
             <Label Text="NordLift"
-                FontSize="32"
-                FontAttributes="Bold"
-                HorizontalTextAlignment="Center"
-                TextColor="#191970" 
-                FontFamily="Segoe UI, sans-serif"/>
-            <Label 
-                FontSize="17"
-                HorizontalTextAlignment="Center"
-                FontAttributes="Bold"
-                TextColor="#4169E1"
-                Margin="0,-20,0,0" />
-            
-            <Picker x:Name="LanPicker"  
-                Title="Pick your Nordic Language to master!"
-                HorizontalTextAlignment="Center"
-                FontSize="{Binding PickerFontSize}"
-                ItemsSource="{Binding Languages}"
-                SelectedItem="{Binding SelectedLanguage}"/>
+                 FontSize="32"
+                 FontAttributes="Bold"
+                 HorizontalTextAlignment="Center"
+                 TextColor="#191970"
+                 Margin="0,-20,0,0"
+                 FontFamily="Segoe UI, sans-serif"/>
+            <Label Text="Your Nordic Learning Companion!"
+                 FontSize="17"
+                 HorizontalTextAlignment="Center"
+                 FontAttributes="Bold"
+                 TextColor="#4169E1"
+                 Margin="0,-20,0,0" />
 
             <Image Source="{Binding SelectedFlag}"
-                   HeightRequest="120"
-                   WidthRequest="120"
-                   Margin="0,-15,0,-55"
-                   HorizontalOptions="Center"
-                    />
+                 HeightRequest="90"
+                 WidthRequest="90"
+                 HorizontalOptions="Center"
+                />
 
-            <Button Text="Vocabulary Flashcards"
+            <Picker x:Name="LanPicker"  
+                 Title="Choose your language here to start." 
+                 HorizontalTextAlignment="Center"
+                 FontSize="{Binding PickerFontSize}"
+                 ItemsSource="{Binding Languages}"
+                 Margin="0,-20,0,0"
+                 SelectedItem="{Binding SelectedLanguage}"
+             />
+            <Label Text="{Binding SelectedLanguageDescription}"
+                FontSize="13"
+                TextColor="Gray"
+                Margin="0,-30,0,0"
+                HorizontalTextAlignment="Justify"
+                Padding="10"
+                IsVisible="{Binding SelectedLanguageDescription}"/> 
+
+            <Button Text="Flashcards"
                 FontSize="18"
                 BackgroundColor="#6495ED" 
                 TextColor="White"
@@ -40,10 +49,10 @@
                 Padding="15"
                 FontAttributes="Bold"
                 HeightRequest="90"
-                Margin="0,50,0,0"
+                Margin="0,-15,0,0"
                 Command="{Binding NavigateToFlashcardsCommand}" />
 
-            <Button Text="Translate to Learn!"
+            <Button Text="Translate and Learn"
                 FontSize="18"
                 BackgroundColor="#87CEFA" 
                 TextColor="White"

@@ -38,7 +38,7 @@ namespace LanguageApp.Views
             FeedbackLabel.IsVisible = false;
             UserEntry.Text = string.Empty;
             NextWordButton.IsEnabled = false;
-            NextWordButton.Opacity = NextWordButton.IsEnabled ? 1.0 : 0.5;
+            NextWordButton.Opacity =  0.5;
         }
 
         private void OnSubmitClicked(object sender, EventArgs e)
@@ -59,12 +59,15 @@ namespace LanguageApp.Views
                 FeedbackLabel.TextColor = Colors.Green;
                 FeedbackLabel.IsVisible = true;
                 NextWordButton.IsEnabled = true;
+                NextWordButton.Opacity = 1;
             }
             else
             {
                 FeedbackLabel.Text = $"Incorrect !👎🙄. The correct translation is: {currentWord.Value}.";
                 FeedbackLabel.TextColor = Colors.Red;
                 FeedbackLabel.IsVisible = true;
+                NextWordButton.IsEnabled = true;
+                NextWordButton.Opacity = 1;
             }
         }
 

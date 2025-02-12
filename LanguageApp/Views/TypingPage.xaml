@@ -13,7 +13,7 @@
                    FontSize="40"
                    HorizontalOptions="Center"
                    TextColor="DarkBlue"
-                   Margin="40"/>
+                   Margin="0"/>
 
             <Entry x:Name="UserEntry"
                    Placeholder="Type the translation here."
@@ -32,7 +32,7 @@
                     Clicked="OnSubmitClicked"
                     FontAttributes="Bold"
                     FontSize="20"
-                    Margin="10"/>
+                    Margin="0"/>
 
             <Button Text="Next Word"
                     BackgroundColor="#2196F3"
@@ -42,7 +42,7 @@
                     Clicked="OnNextWordClicked"
                     FontAttributes="Bold"
                     FontSize="20"
-                    Margin="10"/>
+                    Margin="0"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -9,11 +9,12 @@ namespace LanguageApp.ViewModels
     public class MainPageViewModel : ObservableObject
     {
         private double _pickerFontSize = 16; 
-        private string? _selectedLanguage;
+        private string? _selectedLanguage = "sv";
         private string? _selectedLanguageDescription;
         private string _selectedFlag = "default_flag.png";
         private string _defaultDescription = "NordLift is your ultimate learning companion for mastering Nordic languages, Start learning today and unlock the beauty of Scandinavian communication! \nNOTE :The default language if you do not choose one is Swedish.";
         public bool IsFlagVisible => !string.IsNullOrEmpty(SelectedFlag);
+
 
         private readonly Dictionary<string, string> LanguageFlags = new()
         {

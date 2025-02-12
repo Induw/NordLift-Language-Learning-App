@@ -104,7 +104,7 @@ namespace LanguageApp.Views
 
         private void OnNextFlashcardClicked(object sender, EventArgs e)
         {
-            currentWordIndex = (currentWordIndex + 1) % words.Length;
+            currentWordIndex = random.Next(words.Length);
             LoadNextFlashcard();
 
             // Change flashcard color

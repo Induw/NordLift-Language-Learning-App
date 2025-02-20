@@ -7,7 +7,7 @@ namespace LanguageApp
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ProgressPage), typeof(ProgressPage));
+            Routing.RegisterRoute(nameof(PairsPage), typeof(PairsPage));
             Routing.RegisterRoute(nameof(TypingPage), typeof(TypingPage));
             Routing.RegisterRoute(nameof(FlashCardsPage), typeof(FlashCardsPage));
         }

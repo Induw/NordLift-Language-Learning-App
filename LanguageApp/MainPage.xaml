@@ -62,7 +62,7 @@
                 FontAttributes="Bold"
                 Command="{Binding NavigateToChallengesCommand}" />
 
-            <Button Text="Progress Tracker"
+            <Button Text="Word Picker"
                 FontSize="18"
                 BackgroundColor="#4682B4" 
                 TextColor="White"

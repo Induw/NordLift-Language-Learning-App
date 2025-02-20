@@ -122,7 +122,7 @@ namespace LanguageApp.ViewModels
 
         private async void OnNavigateToProgress()
         {
-            await Shell.Current.GoToAsync(nameof(ProgressPage));
+            await Shell.Current.GoToAsync(nameof(PairsPage));
         }
     }
 }

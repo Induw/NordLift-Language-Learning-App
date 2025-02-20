@@ -82,8 +82,8 @@
 	  <Compile Update="Views\SpeakingPracticePage.xaml.cs">
 	    <DependentUpon>SpeakingPracticePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ProgressPage.xaml.cs">
-	    <DependentUpon>ProgressPage.xaml</DependentUpon>
+	  <Compile Update="Views\PairsPage.xaml.cs">
+	    <DependentUpon>PairsPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -94,7 +94,7 @@
 	  <MauiXaml Update="Views\SpeakingPracticePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ProgressPage.xaml">
+	  <MauiXaml Update="Views\PairsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

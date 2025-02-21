@@ -38,11 +38,11 @@ namespace LanguageApp.ViewModels
         {
             { "Swedish (Svenska)", "Swedish is known for its musical, sing-song intonation and clear enunciation, making it elegant and easy on the ear. It has influenced global design, literature, and music, giving the world ABBA and other cultural icons. Learning it connects you to a rich Scandinavian heritage and modern innovation." },
 
-            { "Norwegian (Norsk)", "Norwegian has two official written standards—Bokmål and Nynorsk—reflecting its diverse history and dialects. It sounds as lyrical as the fjords are majestic, with a natural rhythm that’s captivating to hear. Mastering Norwegian opens doors to a culture deeply rooted in storytelling and outdoor adventure." },
+            { "Norwegian (Norsk)", "Norwegian has two official written standards—Bokmål and Nynorsk—reflecting its diverse history and dialects. It sounds as lyrical as the fjords are majestic, with a natural rhythm that’s captivating to hear. Norwegian opens doors to a culture deeply rooted in storytelling and outdoor adventure." },
 
             { "Finnish (Suomi)", "Finnish is part of the Uralic language family, making it uniquely different from most European languages with its complex grammar and poetic rhythm. It thrives on vowel harmony and long compound words. Its logic and beauty make it deeply rewarding for dedicated language learners." },
 
-            { "Danish (Dansk)", "Danish is famous for its soft pronunciation and the unique 'stød'—a subtle vocal feature that gives it a rhythmic flow. Though often seen as tricky to master, its elegance mirrors Denmark’s world-renowned design aesthetic. Learning Danish brings you closer to a culture rich in innovation and history." },
+            { "Danish (Dansk)", "Danish is famous for its soft pronunciation and the unique 'stød',a subtle vocal feature that gives it a rhythmic flow. Though often seen as tricky to master, its elegance mirrors Denmark’s world-renowned design aesthetic. Danish brings you closer to a culture rich in innovation and history." },
 
             { "Icelandic (Íslenska)", "Icelandic has remained remarkably unchanged since the medieval era, preserving ancient Norse vocabulary and grammar found in Viking sagas. This heritage connects speakers to their history while allowing them to understand centuries-old texts, making it a fascinating language to learn." }
         };
@@ -56,7 +56,7 @@ namespace LanguageApp.ViewModels
                 if (!string.IsNullOrEmpty(value))
 
                 {
-                    PickerFontSize = string.IsNullOrEmpty(value) ? 14 : 21;
+                    PickerFontSize = string.IsNullOrEmpty(value) ? 14 : 18;
                     var languageCode = value switch
                     {
                         "Swedish (Svenska)" => "sv",

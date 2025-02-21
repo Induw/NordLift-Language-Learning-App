@@ -2,49 +2,56 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LanguageApp.Views.FlashCardsPage"
-             Title="Flashcards">
-    <ContentPage.Content>
-        <StackLayout Padding="20" Spacing="20" VerticalOptions="Center">
-            <!-- Flashcard -->
-            <Frame x:Name="FlashcardFrame"
-                   Padding="30"
-                   CornerRadius="20"
-                   BackgroundColor="#6495ED"
-                VerticalOptions="Center"
-                   HeightRequest="400"
-                   WidthRequest="300">
-                <Label x:Name="FlashcardLabel"
-                       Text="(Flashcard)"
-                       FontSize="34"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
-                       TextColor="MidnightBlue" 
-                    FontAttributes="Bold" />
-            </Frame>
+             Title="Flashcards"
+             BackgroundColor="#eaf5e6">
 
-            <!-- Translate Button -->
-            <Button Text="Translate"
+    <StackLayout Padding="25" Spacing="18" VerticalOptions="Center">
+
+
+        <Frame x:Name="FlashcardFrame"
+               Padding="30"
+               CornerRadius="20"
+               BackgroundColor="White"
+               VerticalOptions="Center"
+               HeightRequest="400"
+               WidthRequest="320"
+               HasShadow="True">
+            <Label x:Name="FlashcardLabel"
+                   Text="(Flashcard)"
+                   FontSize="34"
+                   FontFamily="Inter-SemiBold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="#005F73" 
+                   FontAttributes="Bold"/>
+        </Frame>
+
+
+        <Button Text="Flip to Translate"
                 Clicked="OnTranslateClicked"
-                BackgroundColor="#87CEFA" 
-                TextColor="#F5FFFA"
-                WidthRequest="300"
-                HeightRequest="50"
-                FontSize="22"
+                BackgroundColor="#0A9396"
+                TextColor="White"
+                WidthRequest="320"
+                HeightRequest="60"
+                FontSize="20"
                 FontAttributes="Bold"
-                CornerRadius="10" />
+                FontFamily="Inter-SemiBold"
+                CornerRadius="12"/>
 
-            <!-- Next Flashcard Button -->
-            <Button Text="Next Flashcard"
+
+        <Button Text="Show Next Flashcard"
                 Clicked="OnNextFlashcardClicked"
-                BackgroundColor="#4682B4" 
-                TextColor="#F5FFFA"
-                FontSize="22"
-                WidthRequest="300"
-                HeightRequest="50"
+                BackgroundColor="#94D2BD"
+                TextColor="Black"
+                WidthRequest="320"
+                HeightRequest="60"
+                FontSize="20"
                 FontAttributes="Bold"
-                CornerRadius="10" />
-        </StackLayout>
-    </ContentPage.Content>
+                FontFamily="Inter-SemiBold"
+                CornerRadius="12"/>
+
+    </StackLayout>
+
 </ContentPage>

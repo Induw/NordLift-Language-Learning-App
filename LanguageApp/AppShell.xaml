@@ -3,17 +3,10 @@
        xmlns:local="clr-namespace:LanguageApp"
        xmlns:views="clr-namespace:LanguageApp.Views"
        Title="LanguageApp"
-       x:Class="LanguageApp.AppShell">
+       x:Class="LanguageApp.AppShell"
+       BackgroundColor="#eaf5e6">
 
     <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
-
-    <ShellContent Title="Flashcards"
-                  ContentTemplate="{DataTemplate views:FlashCardsPage}" />
-
-    <ShellContent Title="Challenges"
-                  ContentTemplate="{DataTemplate views:TypingPage}" />
-
-    <ShellContent Title="Progress"
-                  ContentTemplate="{DataTemplate views:PairsPage}" />
+    
 </Shell>
 

@@ -105,7 +105,12 @@ namespace LanguageApp.Views
             InitializeComponent();
             LoadNextWord();
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var selectedLanguage = Preferences.Get("SelectedLanguage", "sv");
+            Title = $"Translate and Learn in - {GetLanguageFullName(selectedLanguage)}";
+        }
         private void LoadNextWord()
         {
             var currentLanguage = Preferences.Get("SelectedLanguage", "sv");
@@ -125,7 +130,6 @@ namespace LanguageApp.Views
             currentWord = new KeyValuePair<string, string>(randomKey, wordTranslations[randomKey]);
 
             WordLabel.Text = currentWord.Key;
-            FeedbackLabel.IsVisible = false;
             UserEntry.Text = string.Empty;
             NextWordButton.IsEnabled = false;
             NextWordButton.Opacity = 0.5;
@@ -147,7 +151,7 @@ namespace LanguageApp.Views
 
             if (string.Equals(userInput, currentWord.Value, StringComparison.OrdinalIgnoreCase))
             {
-                FeedbackLabel.Text = "Correct!👍 You're killing it!🤩";
+                FeedbackLabel.Text = "Correct!👍 Keep it Up !";
                 FeedbackLabel.TextColor = Colors.Green;
                 FeedbackLabel.IsVisible = true;
                 NextWordButton.IsEnabled = true;
@@ -155,17 +159,29 @@ namespace LanguageApp.Views
             }
             else
             {
-                FeedbackLabel.Text = $"Incorrect !👎. But that's okay! The correct translation is: {currentWord.Value}.";
-                FeedbackLabel.TextColor = Colors.Red;
+                FeedbackLabel.Text = $"Incorrect !👎.The correct translation is: {currentWord.Value}.";
+                FeedbackLabel.TextColor = Colors.Maroon;
                 FeedbackLabel.IsVisible = true;
                 NextWordButton.IsEnabled = true;
                 NextWordButton.Opacity = 1;
             }
         }
-
+        private string GetLanguageFullName(string languageCode)
+        {
+            return languageCode switch
+            {
+                "sv" => "Swedish",
+                "no" => "Norwegian",
+                "fi" => "Finnish",
+                "da" => "Danish",
+                "is" => "Icelandic",
+                _ => "Swedish"
+            };
+        }
         private void OnNextWordClicked(object sender, EventArgs e)
         {
             LoadNextWord();
+            FeedbackLabel.Text = " ";
         }
     }
 }

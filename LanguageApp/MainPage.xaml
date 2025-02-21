@@ -2,76 +2,99 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LanguageApp.MainPage"
-             BackgroundColor="#F5FFFA">
-    <ScrollView>
-        <StackLayout Padding="20" Spacing="20" VerticalOptions="Start">
-            <Label Text="NordLift"
-                 FontSize="32"
-                 FontAttributes="Bold"
-                 HorizontalTextAlignment="Center"
-                 TextColor="#191970"
-                 Margin="0,-20,0,0"
-                 FontFamily="Segoe UI, sans-serif"/>
-            <Label Text="Your Nordic Learning Companion!"
-                 FontSize="17"
-                 HorizontalTextAlignment="Center"
-                 FontAttributes="Bold"
-                 TextColor="#4169E1"
-                 Margin="0,-20,0,0" />
+             BackgroundColor="#eaf5e6">
 
-            <Image Source="{Binding SelectedFlag}"
-                 HeightRequest="90"
-                 WidthRequest="90"
-                 HorizontalOptions="Center"
-                />
+    <ScrollView>
+        <StackLayout Padding="25" Spacing="18">
+
+
+            <Label Text="NordLift"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#004850"
+                   FontFamily="Inter-SemiBold" />
+
+
+            <Label Text="Your Nordic Language Learning Companion"
+                   FontSize="16"
+                   Margin="0,-10,0,10"
+                   FontAttributes="Italic"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#0A9396"
+                   FontFamily="Inter-SemiBold"/>
+
+
+            <Frame CornerRadius="45"
+                   Padding="5"
+                   HasShadow="False"
+                   BackgroundColor="White"
+                   HorizontalOptions="Center">
+                <Image Source="{Binding SelectedFlag}"
+                       HeightRequest="80"
+                       WidthRequest="80"/>
+            </Frame>
+
 
             <Picker x:Name="LanPicker"  
-                 Title="Choose your language here to start." 
-                 HorizontalTextAlignment="Center"
-                 FontSize="{Binding PickerFontSize}"
-                 ItemsSource="{Binding Languages}"
-                 Margin="0,-20,0,0"
-                 SelectedItem="{Binding SelectedLanguage}"
-             />
+                    Title="Choose your language here"
+                    FontSize="15"
+                    ItemsSource="{Binding Languages}"
+                    SelectedItem="{Binding SelectedLanguage}"
+                    BackgroundColor="#eaf5e6"
+                    TextColor="Black"
+                    Margin="10,5,10,0"/>
+
+
             <Label Text="{Binding SelectedLanguageDescription}"
-                FontSize="13"
-                TextColor="Gray"
-                Margin="0,-30,0,0"
-                HorizontalTextAlignment="Justify"
-                Padding="10"
-                IsVisible="{Binding SelectedLanguageDescription}"/> 
+                   FontSize="14"
+                   TextColor="Gray"
+                   Padding="10"
+                   VerticalTextAlignment="Justify"
+                   HorizontalTextAlignment="Justify"
+                   IsVisible="{Binding SelectedLanguageDescription}" />
 
-            <Button Text="Flashcards"
-                FontSize="18"
-                BackgroundColor="#6495ED" 
-                TextColor="White"
-                CornerRadius="15"
-                Padding="15"
-                FontAttributes="Bold"
-                HeightRequest="90"
-                Margin="0,-15,0,0"
-                Command="{Binding NavigateToFlashcardsCommand}" />
 
-            <Button Text="Translate and Learn"
-                FontSize="18"
-                BackgroundColor="#87CEFA" 
-                TextColor="White"
-                HeightRequest="90"
-                CornerRadius="15"
-                Padding="15"
-                FontAttributes="Bold"
-                Command="{Binding NavigateToChallengesCommand}" />
+            <StackLayout Spacing="12">
+                <Button Text="Flashcards"
+                        FontSize="18"
+                        BackgroundColor="#0A9396"
+                        TextColor="White"
+                        CornerRadius="12"
+                        Padding="12"
+                        HeightRequest="70"
+                        Command="{Binding NavigateToFlashcardsCommand}" />
 
-            <Button Text="Word Picker"
-                FontSize="18"
-                BackgroundColor="#4682B4" 
-                TextColor="White"
-                CornerRadius="15"
-                HeightRequest="90"
-                Padding="15"
-                FontAttributes="Bold"
-                Command="{Binding NavigateToProgressCommand}" />
+                <Button Text="Translate and Learn"
+                        FontSize="18"
+                        BackgroundColor="#94D2BD"
+                        TextColor="Black"
+                        CornerRadius="12"
+
+                        Padding="12"
+                        HeightRequest="70"
+                        Command="{Binding NavigateToChallengesCommand}" />
+
+                <Button Text="Word Match"
+                        FontSize="18"
+                        BackgroundColor = "#e5faaf"
+                        TextColor="#005F73"
+                        CornerRadius="12"
+                        Padding="12"
+                        BorderColor="#005F73"
+                        BorderWidth="1"
+                        HeightRequest="70"
+                        Command="{Binding NavigateToProgressCommand}" />
+                
+                <Label Text= "Developed as a personal project by Induw"
+                       TextColor="#005F73"
+                       FontAttributes="Italic"
+                       FontFamily="Inter"
+                       FontSize="09"
+                       HorizontalTextAlignment="Center"                  
+                       Margin="0,50,0,0"/>
+            </StackLayout>
+
         </StackLayout>
-        
     </ScrollView>
 </ContentPage>

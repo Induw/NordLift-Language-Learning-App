@@ -87,6 +87,12 @@ namespace LanguageApp.Views
             InitializeComponent();
             LoadNextFlashcard();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var selectedLanguage = Preferences.Get("SelectedLanguage", "sv");
+            Title = $"Flashcards in - {GetLanguageFullName(selectedLanguage)}";
+        }
 
         private async void OnTranslateClicked(object sender, EventArgs e)
         {
@@ -107,7 +113,6 @@ namespace LanguageApp.Views
             currentWordIndex = random.Next(words.Length);
             LoadNextFlashcard();
 
-            // Change flashcard color
             FlashcardFrame.BackgroundColor = GetRandomColor();
         }
 
@@ -120,7 +125,7 @@ namespace LanguageApp.Views
         {
             await FlashcardFrame.RotateYTo(90, 250);
 
-            FlashcardLabel.Text = translation; // Show translation
+            FlashcardLabel.Text = translation; 
             FlashcardLabel.TextColor = Colors.Black;
 
             await FlashcardFrame.RotateYTo(180, 250);
@@ -129,18 +134,28 @@ namespace LanguageApp.Views
         }
         private Color GetRandomColor()
         {
-            // Define a palette of colors that match the CornflowerBlue aesthetic.
             Color[] palette =
             [
-            Color.FromRgb(230, 230, 250),  //Lavender (#E6E6FA)
-            Color.FromRgb(175, 238, 238),  //Pale Turquoise (#AFEEEE)
-            Color.FromRgb(250, 250, 210),  //Light Goldenrod Yellow (#FAFAD2)
-            Color.FromRgb(245, 255, 250)   //Mint Cream (#F5FFFA)
+                Color.FromArgb("#E6E6FA"), // Lavender
+                Color.FromArgb("#AFEEEE"), // Pale Turquoise
+                Color.FromArgb("#FAFAD2"), // Light Goldenrod Yellow
+                Color.FromArgb("#F5FFFA")  // Mint Cream
             ];
 
             return palette[random.Next(palette.Length)];
         }
-
+        private string GetLanguageFullName(string languageCode)
+        {
+            return languageCode switch
+            {
+                "sv" => "Swedish",
+                "no" => "Norwegian",
+                "fi" => "Finnish",
+                "da" => "Danish",
+                "is" => "Icelandic",
+                _ => "Swedish"
+            };
+        }
         private async Task<string> GetTranslationAsync(string text, string sourceLang, string targetLang)
         {
             const string apiUrl = "https://api.mymemory.translated.net/get";

@@ -2,47 +2,78 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LanguageApp.Views.TypingPage"
-             Title="Translate and Learn">
-    <ContentPage.Content>
-        <StackLayout Padding="20" Spacing="20">
-            
-            <Label Text="Try translating the word/phrase below:"
-                   FontSize="18"
-                   FontAttributes="Bold" />
+             Title="Translate and Learn"
+             BackgroundColor="#eaf5e6">
+
+    <StackLayout Padding="25" Spacing="18">
+
+
+        <Label Text="Try translating the word/phrase below:"
+               FontSize="18"
+               FontAttributes="Bold"
+               FontFamily="Inter-SemiBold"
+               HorizontalOptions="Center"
+               TextColor="#005F73"/>
+
+        <Frame CornerRadius="10"
+               Padding="10"
+               BackgroundColor="White"
+               HorizontalOptions="Center">
             <Label x:Name="WordLabel"
-                   FontSize="40"
-                   HorizontalOptions="Center"
-                   TextColor="DarkBlue"
-                   Margin="0"/>
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   FontFamily="Inter-SemiBold"
+                   TextColor="#0A9396"
+                   HorizontalOptions="Center"/>
+        </Frame>
 
-            <Entry x:Name="UserEntry"
-                   Placeholder="Type the translation here."
-                   FontSize="20"
-                   HorizontalOptions="Fill" />
+        <!-- User Input -->
+        <Entry x:Name="UserEntry"
+               Placeholder="Type your translation here..."
+               FontSize="18"
+               FontFamily="Inter"
+               BackgroundColor="#eaf5e6"
+               TextColor="Black"
+               PlaceholderColor="Gray"
+               HeightRequest="50"
+               Margin="10,5,10,5"/>
 
-            <Label x:Name="FeedbackLabel"
-                   FontSize="20"
-                   TextColor="Gray"
-                   HorizontalOptions="Center"
-                   IsVisible="False" />
+        <!-- Feedback Message -->
+        <Label x:Name="FeedbackLabel"
+               FontSize="14"
+               Text="  "
+               IsVisible="True"
+               FontFamily="Inter-SemiBold"
+               TextColor="#0A9396"
+               HorizontalOptions="Center"
+               />
 
-            <Button Text="Submit"
-                    BackgroundColor="#4CAF50"
-                    TextColor="White"
-                    Clicked="OnSubmitClicked"
-                    FontAttributes="Bold"
-                    FontSize="20"
-                    Margin="0"/>
+        <!-- Submit Button -->
+        <Button Text="Submit"
+                BackgroundColor="#0A9396"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontFamily="Inter-SemiBold"
+                FontSize="18"
+                CornerRadius="12"
+                Padding="12"
+                HeightRequest="60"
+                Clicked="OnSubmitClicked"/>
 
-            <Button Text="Next Word"
-                    BackgroundColor="#2196F3"
-                    TextColor="White"
-                    IsEnabled="False"
-                    x:Name="NextWordButton"
-                    Clicked="OnNextWordClicked"
-                    FontAttributes="Bold"
-                    FontSize="20"
-                    Margin="0"/>
-        </StackLayout>
-    </ContentPage.Content>
+        <!-- Next Word Button -->
+        <Button x:Name="NextWordButton"
+                Text="Next Word"
+                BackgroundColor="#94D2BD"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontFamily="Inter-SemiBold"
+                FontSize="18"
+                CornerRadius="12"
+                Padding="12"
+                HeightRequest="60"
+                IsEnabled="False"
+                Clicked="OnNextWordClicked"/>
+    </StackLayout>
+
 </ContentPage>
+

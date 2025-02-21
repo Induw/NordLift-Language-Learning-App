@@ -11,7 +11,7 @@
                FontSize="20"
                HorizontalOptions="Center"
                FontAttributes="Bold"
-               TextColor="#191970"/>
+               TextColor="#005F73"/>
         
         <Grid x:Name="PairsGrid"
               ColumnDefinitions="*,*"
@@ -19,10 +19,12 @@
               VerticalOptions="FillAndExpand"/>
 
         <Label x:Name="ErrorMessage"
-               TextColor="Red"
+               Text="Tap away! "
                FontSize="16"
-               IsVisible="False"
+               IsVisible="True"
+               FontAttributes="Bold"
+               VerticalOptions="Center"
+               HeightRequest="30"
                HorizontalOptions="Center"/>
-
     </StackLayout>
 </ContentPage>

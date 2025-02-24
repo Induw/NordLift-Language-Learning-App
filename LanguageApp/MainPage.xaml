@@ -73,7 +73,7 @@
 
                         Padding="12"
                         HeightRequest="70"
-                        Command="{Binding NavigateToChallengesCommand}" />
+                        Command="{Binding NavigateToTypingCommand}" />
 
                 <Button Text="Word Match"
                         FontSize="18"
@@ -84,7 +84,7 @@
                         BorderColor="#005F73"
                         BorderWidth="1"
                         HeightRequest="70"
-                        Command="{Binding NavigateToProgressCommand}" />
+                        Command="{Binding NavigateToPairsCommand}" />
                 
                 <Label Text= "Developed as a personal project by Induw"
                        TextColor="#005F73"

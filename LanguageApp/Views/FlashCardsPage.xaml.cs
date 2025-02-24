@@ -6,6 +6,9 @@ namespace LanguageApp.Views
 {
     public partial class FlashCardsPage : ContentPage
     {
+        private string currentLanguage = Preferences.Get("SelectedLanguage", "sv");
+        private int currentWordIndex = 0;
+        private readonly Random random = new();
         private string[] words = {
             "Hello",
             "Yes",
@@ -78,10 +81,6 @@ namespace LanguageApp.Views
             "Do you understand?"
         };
 
-
-        private int currentWordIndex = 0;
-        private readonly Random random = new();
-
         public FlashCardsPage()
         {
             InitializeComponent();
@@ -90,15 +89,14 @@ namespace LanguageApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var selectedLanguage = Preferences.Get("SelectedLanguage", "sv");
-            Title = $"Flashcards in - {GetLanguageFullName(selectedLanguage)}";
+            Title = $"Flashcards in - {GetLanguageFullName(currentLanguage)}";
         }
 
         private async void OnTranslateClicked(object sender, EventArgs e)
         {
             var word = words[currentWordIndex];
-            var CurrentLanguage = Preferences.Get("SelectedLanguage", "sv");
-            var translation = await GetTranslationAsync(word, "en", CurrentLanguage); 
+            
+            var translation = await GetTranslationAsync(word, "en", currentLanguage); 
             if (string.IsNullOrEmpty(translation))
             {
                 await DisplayAlert("Error", "Failed to fetch translation.", "OK");

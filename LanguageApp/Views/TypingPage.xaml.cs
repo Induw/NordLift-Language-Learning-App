@@ -6,6 +6,9 @@ namespace LanguageApp.Views
 {
     public partial class TypingPage : ContentPage
     {
+        private string currentLanguage = Preferences.Get("SelectedLanguage", "sv");
+        private readonly Random random = new();
+        private KeyValuePair<string, string> currentWord;
         private readonly Dictionary<string, string> SwedishTranslations = new()
         {
             { "Hej", "Hello" },
@@ -97,8 +100,7 @@ namespace LanguageApp.Views
             { "Ég heiti...", "My name is..." }
         };
 
-        private readonly Random random = new();
-        private KeyValuePair<string, string> currentWord;
+      
 
         public TypingPage()
         {
@@ -108,13 +110,11 @@ namespace LanguageApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var selectedLanguage = Preferences.Get("SelectedLanguage", "sv");
-            Title = $"Translate and Learn in - {GetLanguageFullName(selectedLanguage)}";
+            
+            Title = $"Translate and Learn in - {GetLanguageFullName(currentLanguage)}";
         }
         private void LoadNextWord()
         {
-            var currentLanguage = Preferences.Get("SelectedLanguage", "sv");
-
             Dictionary<string, string> wordTranslations = currentLanguage switch
             {
                 "sv" => SwedishTranslations,

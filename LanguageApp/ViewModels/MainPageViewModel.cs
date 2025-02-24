@@ -13,8 +13,11 @@ namespace LanguageApp.ViewModels
         private string? _selectedLanguageDescription;
         private string _selectedFlag = "default_flag.png";
         private string _defaultDescription = "NordLift is your ultimate learning companion for mastering Nordic languages, Start learning today and unlock the beauty of Scandinavian communication! \nNOTE :The default language if you do not choose one is Swedish.";
-        public bool IsFlagVisible => !string.IsNullOrEmpty(SelectedFlag);
+        public ICommand NavigateToFlashcardsCommand { get; }
+        public ICommand NavigateToTypingCommand { get; }
+        public ICommand NavigateToPairsCommand { get; }
 
+        public bool IsFlagVisible => !string.IsNullOrEmpty(SelectedFlag);
 
         private readonly Dictionary<string, string> LanguageFlags = new()
         {
@@ -25,7 +28,6 @@ namespace LanguageApp.ViewModels
             { "Icelandic (Íslenska)", "iceland_flag.png" }
 
         };
-
         public ObservableCollection<string> Languages { get; } = new()
         {
             "Swedish (Svenska)",
@@ -98,15 +100,11 @@ namespace LanguageApp.ViewModels
             set => SetProperty(ref _pickerFontSize, value);
         }
 
-        public ICommand NavigateToFlashcardsCommand { get; }
-        public ICommand NavigateToChallengesCommand { get; }
-        public ICommand NavigateToProgressCommand { get; }
-
         public MainPageViewModel()
         {
             NavigateToFlashcardsCommand = new RelayCommand(OnNavigateToFlashcards);
-            NavigateToChallengesCommand = new RelayCommand(OnNavigateToChallenges);
-            NavigateToProgressCommand = new RelayCommand(OnNavigateToProgress);
+            NavigateToTypingCommand = new RelayCommand(OnNavigateToTyping);
+            NavigateToPairsCommand = new RelayCommand(OnNavigateToPairs);
             SelectedLanguageDescription = _defaultDescription;
         }
 
@@ -115,12 +113,12 @@ namespace LanguageApp.ViewModels
             await Shell.Current.GoToAsync(nameof(FlashCardsPage));
         }
 
-        private async void OnNavigateToChallenges()
+        private async void OnNavigateToTyping()
         {
             await Shell.Current.GoToAsync(nameof(TypingPage));
         }
 
-        private async void OnNavigateToProgress()
+        private async void OnNavigateToPairs()
         {
             await Shell.Current.GoToAsync(nameof(PairsPage));
         }

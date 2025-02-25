@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LanguageApp.ViewModels"
              x:Class="LanguageApp.Views.FlashCardsPage"
-             Title="Flashcards"
+             Title="{Binding Title}"
              BackgroundColor="#eaf5e6">
 
-    <StackLayout Padding="25" Spacing="18" VerticalOptions="Center">
+    <ContentPage.BindingContext>
+        <vm:FlashCardsPageViewModel />
+    </ContentPage.BindingContext>
 
+    <StackLayout Padding="25" Spacing="18" VerticalOptions="Center">
 
         <Frame x:Name="FlashcardFrame"
                Padding="30"
                CornerRadius="20"
-               BackgroundColor="White"
+               BackgroundColor="{Binding FlashcardColor}"
                VerticalOptions="Center"
                HeightRequest="400"
                WidthRequest="320"
                HasShadow="True">
             <Label x:Name="FlashcardLabel"
-                   Text="(Flashcard)"
+                   Text="{Binding DisplayedText}"
                    FontSize="34"
                    FontFamily="Inter-SemiBold"
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
-                   TextColor="#005F73" 
+                   TextColor="#005F73"
                    FontAttributes="Bold"/>
         </Frame>
 
-
         <Button Text="Flip to Translate"
-                Clicked="OnTranslateClicked"
+                Command="{Binding TranslateCommand}"
                 BackgroundColor="#0A9396"
                 TextColor="White"
                 WidthRequest="320"
@@ -40,9 +43,8 @@
                 FontFamily="Inter-SemiBold"
                 CornerRadius="12"/>
 
-
         <Button Text="Show Next Flashcard"
-                Clicked="OnNextFlashcardClicked"
+                Command="{Binding NextFlashcardCommand}"
                 BackgroundColor="#94D2BD"
                 TextColor="Black"
                 WidthRequest="320"

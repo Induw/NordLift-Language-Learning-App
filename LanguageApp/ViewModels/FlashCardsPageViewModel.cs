@@ -91,8 +91,7 @@ namespace LanguageApp.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
         private string currentLanguage = Preferences.Get("SelectedLanguage", "sv");
-       
-        // Event to trigger animation in the View
+
         public event EventHandler<string> OnFlashcardFlipped;
 
         public FlashCardsPageViewModel()

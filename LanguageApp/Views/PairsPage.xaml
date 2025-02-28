@@ -4,27 +4,30 @@
              x:Class="LanguageApp.Views.PairsPage"
              Title="Match the Pairs"
              BackgroundColor="#F5FFFA">
-
-    <StackLayout Padding="20" Spacing="15">
-        
-        <Label Text="Match the words with their meanings"
-               FontSize="20"
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="Match the Words !"
+               FontSize="24"
+               FontAttributes="Bold"
                HorizontalOptions="Center"
-               FontAttributes="Bold"
-               TextColor="#005F73"/>
-        
-        <Grid x:Name="PairsGrid"
-              ColumnDefinitions="*,*"
-              RowSpacing="10"
-              VerticalOptions="FillAndExpand"/>
-
+               TextColor="#2D3748"
+               FontFamily="OpenSans-Bold"/>
+        <Frame BackgroundColor="White"
+               CornerRadius="15"
+               Padding="15"
+               HasShadow="True"
+               VerticalOptions="FillAndExpand">
+            <Grid x:Name="PairsGrid"
+                  ColumnDefinitions="*,*"
+                  RowSpacing="12"
+                  ColumnSpacing="12"/>
+        </Frame>
         <Label x:Name="ErrorMessage"
-               Text="Tap away! "
+               Text="Tap to start!"
                FontSize="16"
-               IsVisible="True"
                FontAttributes="Bold"
+               TextColor="#4A5568"
+               HorizontalOptions="Center"
                VerticalOptions="Center"
-               HeightRequest="30"
-               HorizontalOptions="Center"/>
+               HeightRequest="40"/>
     </StackLayout>
 </ContentPage>

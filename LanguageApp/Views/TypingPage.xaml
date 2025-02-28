@@ -2,33 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LanguageApp.Views.TypingPage"
-             Title="Translate and Learn"
+             Title="{Binding PageTitle}"
              BackgroundColor="#eaf5e6">
-
     <StackLayout Padding="25" Spacing="18">
-
-
         <Label Text="Try translating the word/phrase below:"
                FontSize="18"
                FontAttributes="Bold"
                FontFamily="Inter-SemiBold"
                HorizontalOptions="Center"
                TextColor="#005F73"/>
-
         <Frame CornerRadius="10"
                Padding="10"
                BackgroundColor="White"
                HorizontalOptions="Center">
-            <Label x:Name="WordLabel"
+            <Label Text="{Binding WordToTranslate}"
                    FontSize="32"
                    FontAttributes="Bold"
                    FontFamily="Inter-SemiBold"
                    TextColor="#0A9396"
                    HorizontalOptions="Center"/>
         </Frame>
-
         <!-- User Input -->
-        <Entry x:Name="UserEntry"
+        <Entry Text="{Binding UserInput, Mode=TwoWay}"
                Placeholder="Type your translation here..."
                FontSize="18"
                FontFamily="Inter"
@@ -37,19 +32,16 @@
                PlaceholderColor="Gray"
                HeightRequest="50"
                Margin="10,5,10,5"/>
-
         <!-- Feedback Message -->
-        <Label x:Name="FeedbackLabel"
+        <Label Text="{Binding FeedbackMessage}"
+               TextColor="{Binding FeedbackColor}"
                FontSize="14"
-               Text="  "
-               IsVisible="True"
                FontFamily="Inter-SemiBold"
-               TextColor="#0A9396"
                HorizontalOptions="Center"
-               />
-
+               IsVisible="True"/>
         <!-- Submit Button -->
         <Button Text="Submit"
+                Command="{Binding SubmitCommand}"
                 BackgroundColor="#0A9396"
                 TextColor="White"
                 FontAttributes="Bold"
@@ -57,12 +49,11 @@
                 FontSize="18"
                 CornerRadius="12"
                 Padding="12"
-                HeightRequest="60"
-                Clicked="OnSubmitClicked"/>
-
+                HeightRequest="60"/>
         <!-- Next Word Button -->
-        <Button x:Name="NextWordButton"
-                Text="Next Word"
+        <Button Text="Next Word"
+                Command="{Binding NextWordCommand}"
+                IsEnabled="{Binding IsNextWordEnabled}"
                 BackgroundColor="#94D2BD"
                 TextColor="Black"
                 FontAttributes="Bold"
@@ -70,10 +61,6 @@
                 FontSize="18"
                 CornerRadius="12"
                 Padding="12"
-                HeightRequest="60"
-                IsEnabled="False"
-                Clicked="OnNextWordClicked"/>
+                HeightRequest="60"/>
     </StackLayout>
-
 </ContentPage>
-

@@ -9,7 +9,7 @@
 ---
 ## Tech Stack
 
-NordLift is built with **.NET MAUI** and **C#**, enabling a cross-platform language learning experience on Android, iOS, and Windows with a single codebase. The app uses **XAML** and the **MVVM pattern** for clean, dynamic UI design, powered by data binding and dependency injection for services like translations via a singleton **HttpClient**. Real-time translations come from the MyMemory API, parsed with **System.Text.Json**, while **SVG graphics** and MAUI animations enhance the Nordic-themed interface. This stack ensures a minimal, efficient, and visually appealing app inspired by Scandinavian simplicity.
+NordLift is built with **.NET MAUI**, enabling a cross-platform language learning experience on Android, iOS, and Windows. The app uses **XAML** and the **MVVM pattern** for clean, dynamic UI design,data binding and dependency injection for services like translations. Real-time translations come from the MyMemory API, while **SVG graphics** and MAUI animations enhance the Nordic-themed interface.
 
 ## Screenshots
 

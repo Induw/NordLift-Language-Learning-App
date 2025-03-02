@@ -36,6 +36,19 @@ namespace LanguageApp.Services
             }
             return string.Empty;
         }
+
+        public string GetLanguageFullName(string languageCode)
+        {
+            return languageCode switch
+            {
+                "sv" => "Swedish",
+                "no" => "Norwegian",
+                "fi" => "Finnish",
+                "da" => "Danish",
+                "is" => "Icelandic",
+                _ => "Swedish"
+            };
+        }
     }
     
 }

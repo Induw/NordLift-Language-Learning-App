@@ -100,7 +100,7 @@ namespace LanguageApp.ViewModels
             _translationService = translationService;
             LoadNextFlashcard();
             FlashcardColor = GetRandomColor();
-            Title = $"Flashcards : {GetLanguageFullName(_currentLanguage)}"; 
+            Title = $"Flashcards : {translationService.GetLanguageFullName(_currentLanguage)}"; 
         }
 
         public string DisplayedText
@@ -190,18 +190,6 @@ namespace LanguageApp.ViewModels
             };
 
             return palette[_random.Next(palette.Length)];
-        }
-        private string GetLanguageFullName(string languageCode)
-        {
-            return languageCode switch
-            {
-                "sv" => "Swedish",
-                "no" => "Norwegian",
-                "fi" => "Finnish",
-                "da" => "Danish",
-                "is" => "Icelandic",
-                _ => "Swedish"
-            };
         }
 
 

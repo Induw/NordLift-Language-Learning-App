@@ -12,7 +12,7 @@ namespace LanguageApp.ViewModels
         private string? _selectedLanguage = "sv";
         private string? _selectedLanguageDescription;
         private string _selectedFlag = "default_flag.png";
-        private string _defaultDescription = "NordLift is your ultimate learning companion for mastering Nordic languages, Start learning today and unlock the beauty of Scandinavian communication! \nNOTE :The default language if you do not choose one is Swedish.";
+        private string _defaultDescription = "NordLift, your learning companion for mastering the Nordic languages on the go with ease, Start learning today and embrace the charm of Scandinavian speech ! \nNote : Swedish is the default language if none is selected.";
         public ICommand NavigateToFlashcardsCommand { get; }
         public ICommand NavigateToTypingCommand { get; }
         public ICommand NavigateToPairsCommand { get; }
@@ -44,7 +44,7 @@ namespace LanguageApp.ViewModels
 
             { "Finnish (Suomi)", "Finnish is part of the Uralic language family, making it uniquely different from most European languages with its complex grammar and poetic rhythm. It thrives on vowel harmony and long compound words. Its logic and beauty make it deeply rewarding for dedicated language learners." },
 
-            { "Danish (Dansk)", "Danish is famous for its soft pronunciation and the unique 'stød',a subtle vocal feature that gives it a rhythmic flow. Though often seen as tricky to master, its elegance mirrors Denmark’s world-renowned design aesthetic. Danish brings you closer to a culture rich in innovation and history." },
+            { "Danish (Dansk)", "Danish is famous for its soft pronunciation and the unique 'stød',a subtle vocal feature that gives it a rhythmic flow. Though often seen as tricky to master, its elegance mirrors Denmark’s world-renowned design aesthetic. Danish brings you closer to a culture rich in history." },
 
             { "Icelandic (Íslenska)", "Icelandic has remained remarkably unchanged since the medieval era, preserving ancient Norse vocabulary and grammar found in Viking sagas. This heritage connects speakers to their history while allowing them to understand centuries-old texts, making it a fascinating language to learn." }
         };

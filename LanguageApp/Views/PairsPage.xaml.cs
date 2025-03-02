@@ -71,7 +71,7 @@ public partial class PairsPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        Title = $"Word Match in - {GetLanguageFullName(currentLanguage)}";
+        Title = $"Word Match : {GetLanguageFullName(currentLanguage)}";
     }
 
     private void LoadNewPairs()

@@ -2,9 +2,9 @@
 
 **NordLift** is a language learning app designed to help beginners learn multiple **Nordic languages**. The app includes:
 
-- 📖 **Vocabulary Flashcards** – Learn new words effortlessly.
-- 🌍 **Translations** – Translate and Learn new words.
-- 🎮 **Word Match Game** – Match words and meanings interactively.
+- **Vocabulary Flashcards** – Learn new words effortlessly.
+- **Translations** – Translate and Learn new words.
+- **Word Match Game** – Match words and meanings interactively.
 
 ---
 ## Tech Stack
@@ -31,7 +31,7 @@ NordLift is built with **.NET MAUI**, enabling a cross-platform language learnin
 
 ## Features
 
-✅ **Multi-Language Support** – Learn **Swedish, Norwegian, Finnish, Danish and Icelandic**.
-✅ **User-Friendly Interface** – Simple and intuitive designaligning with Nordic Minimalism.
+**Multi-Language Support** – Learn **Swedish, Norwegian, Finnish, Danish and Icelandic**.
+**User-Friendly Interface** – Simple and intuitive designaligning with Nordic Minimalism.
 
 

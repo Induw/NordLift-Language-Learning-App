@@ -1,6 +1,6 @@
 # NordLift
 
-**NordLift** is a language learning app designed using **.NET MAUI** to help users learn multiple **Nordic languages**. The app includes:
+**NordLift** is a language learning app designed to help beginners learn multiple **Nordic languages**. The app includes:
 
 - 📖 **Vocabulary Flashcards** – Learn new words effortlessly.
 - 🌍 **Translations** – Translate and Learn new words.

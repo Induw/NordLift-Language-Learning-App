@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Maui.Controls;
+using LanguageApp.Services;
 
 public partial class PairsPage : ContentPage
 {
+    private readonly ITranslationService _translationService;
     private Random random = new();
     private string currentLanguage = Preferences.Get("SelectedLanguage", "sv");
     private Dictionary<Button, string> ButtonPairs = new();
@@ -62,16 +64,17 @@ public partial class PairsPage : ContentPage
         "Keep it up!", "Nice work!", "You're on fire!"
     };
 
-    public PairsPage()
+    public PairsPage(ITranslationService translationService)
     {
         InitializeComponent();
         LoadNewPairs();
+        _translationService = translationService;
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        Title = $"Word Match : {GetLanguageFullName(currentLanguage)}";
+        Title = $"Word Match : {_translationService.GetLanguageFullName(currentLanguage)}";
     }
 
     private void LoadNewPairs()
@@ -241,16 +244,4 @@ public partial class PairsPage : ContentPage
         return languageWordPairs.GetValueOrDefault(language, SwedishWordPairs);
     }
 
-    private string GetLanguageFullName(string languageCode)
-    {
-        return languageCode switch
-        {
-            "sv" => "Swedish",
-            "no" => "Norwegian",
-            "fi" => "Finnish",
-            "da" => "Danish",
-            "is" => "Icelandic",
-            _ => "Swedish"
-        };
-    }
 }

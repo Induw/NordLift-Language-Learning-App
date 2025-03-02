@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using LanguageApp.Services;
 
 namespace LanguageApp.ViewModels
 {
@@ -26,6 +27,7 @@ namespace LanguageApp.ViewModels
             return true;
         }
         private readonly Random random = new Random();
+        public readonly ITranslationService _translationService;
         private string currentLanguage;
         private Dictionary<string, string> currentDictionary;
         private KeyValuePair<string, string> currentWord;
@@ -171,15 +173,16 @@ namespace LanguageApp.ViewModels
             { "Ég heiti...", "My name is..." }
         };
 
-        public TypingViewModel()
+        public TypingViewModel(ITranslationService translationService)
         {
             currentLanguage = Preferences.Get("SelectedLanguage", "sv");
             SetDictionary();
             LoadNextWord();
-            PageTitle = $"Translate : {GetLanguageFullName(currentLanguage)}";
+            PageTitle = $"Translate : {translationService.GetLanguageFullName(currentLanguage)}";
 
             SubmitCommand = new Command(OnSubmit);
             NextWordCommand = new Command(OnNextWord);
+            _translationService = translationService;
         }
 
 
@@ -235,19 +238,6 @@ namespace LanguageApp.ViewModels
         private void OnNextWord()
         {
             LoadNextWord();
-        }
-
-        private string GetLanguageFullName(string languageCode)
-        {
-            return languageCode switch
-            {
-                "sv" => "Swedish",
-                "no" => "Norwegian",
-                "fi" => "Finnish",
-                "da" => "Danish",
-                "is" => "Icelandic",
-                _ => "Swedish"
-            };
         }
     }
 }

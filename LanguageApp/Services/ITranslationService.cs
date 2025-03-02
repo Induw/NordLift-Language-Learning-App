@@ -9,5 +9,6 @@ namespace LanguageApp.Services
     public interface ITranslationService 
     {
         Task<string> GetTranslationAsync(string text,string sourceLang, string targetLang);
+        public string GetLanguageFullName(string languageCode);
     }
 }

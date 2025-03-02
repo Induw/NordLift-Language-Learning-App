@@ -31,7 +31,7 @@ NordLift is built with **.NET MAUI**, enabling a cross-platform language learnin
 
 ## Features
 
-**Multi-Language Support** – Learn **Swedish, Norwegian, Finnish, Danish and Icelandic**.
-**User-Friendly Interface** – Simple and intuitive designaligning with Nordic Minimalism.
+- **Multi-Language Support** – Learn **Swedish, Norwegian, Finnish, Danish and Icelandic**.
+- **User-Friendly Interface** – Simple and intuitive designaligning with Nordic Minimalism.
 
 

@@ -176,7 +176,7 @@ namespace LanguageApp.ViewModels
             currentLanguage = Preferences.Get("SelectedLanguage", "sv");
             SetDictionary();
             LoadNextWord();
-            PageTitle = $"Translate and Learn in - {GetLanguageFullName(currentLanguage)}";
+            PageTitle = $"Translate : {GetLanguageFullName(currentLanguage)}";
 
             SubmitCommand = new Command(OnSubmit);
             NextWordCommand = new Command(OnNextWord);

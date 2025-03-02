@@ -37,12 +37,11 @@
 
 
             <Picker x:Name="LanPicker"  
-                    Title="Choose your language here"
-                    FontSize="15"
+                    Title="Pick your Nordic Language."
                     ItemsSource="{Binding Languages}"
+                    HorizontalTextAlignment="Center"
                     SelectedItem="{Binding SelectedLanguage}"
                     BackgroundColor="#eaf5e6"
-                    TextColor="Black"
                     Margin="10,5,10,0"/>
 
 

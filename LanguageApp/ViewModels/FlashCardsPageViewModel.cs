@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LanguageApp.Services;
 using Microsoft.Maui.Controls;
 
 namespace LanguageApp.ViewModels
@@ -11,6 +12,7 @@ namespace LanguageApp.ViewModels
     public class FlashCardsPageViewModel : INotifyPropertyChanged
     {
         private readonly Random _random = new();
+        private readonly ITranslationService _translationService;
         private string _currentLanguage;
         private string _displayedText;
         private bool IsFlipped;
@@ -90,16 +92,15 @@ namespace LanguageApp.ViewModels
         };
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private string currentLanguage = Preferences.Get("SelectedLanguage", "sv");
-
         public event EventHandler<string> OnFlashcardFlipped;
 
-        public FlashCardsPageViewModel()
+        public FlashCardsPageViewModel(ITranslationService translationService)
         {
             _currentLanguage = Preferences.Get("SelectedLanguage", "sv");
+            _translationService = translationService;
             LoadNextFlashcard();
             FlashcardColor = GetRandomColor();
-            Title = $"Flashcards in - {GetLanguageFullName(_currentLanguage)}"; 
+            Title = $"Flashcards : {GetLanguageFullName(_currentLanguage)}"; 
         }
 
         public string DisplayedText
@@ -161,7 +162,7 @@ namespace LanguageApp.ViewModels
             {
                 if (!IsFlipped)
                 {
-                    string translation = await GetTranslationAsync(_originalText, "en", _currentLanguage);
+                    string translation = await _translationService.GetTranslationAsync(_originalText, "en", _currentLanguage);
                     if (!string.IsNullOrEmpty(translation))
                     {
                         DisplayedText = translation;
@@ -176,28 +177,6 @@ namespace LanguageApp.ViewModels
                     OnFlashcardFlipped?.Invoke(this, _originalText);
                 }
             }
-        }
-
-        private async Task<string> GetTranslationAsync(string text, string sourceLang, string targetLang)
-        {
-            const string apiUrl = "https://api.mymemory.translated.net/get";
-            try
-            {
-                using var client = new HttpClient();
-                var response = await client.GetStringAsync($"{apiUrl}?q={Uri.EscapeDataString(text)}&langpair={sourceLang}|{targetLang}");
-                var jsonResponse = JsonDocument.Parse(response);
-
-                if (jsonResponse.RootElement.TryGetProperty("responseData", out var responseData) &&
-                    responseData.TryGetProperty("translatedText", out var translatedText))
-                {
-                    return translatedText.GetString();
-                }
-            }
-            catch (Exception)
-            {
-                return "Translation Error";
-            }
-            return string.Empty;
         }
 
         private Color GetRandomColor()

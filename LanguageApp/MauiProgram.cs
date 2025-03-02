@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using LanguageApp.Services;
 
 namespace LanguageApp
 {
@@ -14,9 +15,11 @@ namespace LanguageApp
                     fonts.AddFont("SegoeUI.ttf", "SegoeUI");
                     fonts.AddFont("SegoeUI-Bold.ttf", "SegoeUIBold");
                 });
+            builder.Services.AddSingleton<HttpClient>();
+            builder.Services.AddSingleton<ITranslationService, TranslationService>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

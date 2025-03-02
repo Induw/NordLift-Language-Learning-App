@@ -6,10 +6,6 @@
              Title="{Binding Title}"
              BackgroundColor="#eaf5e6">
 
-    <ContentPage.BindingContext>
-        <vm:FlashCardsPageViewModel />
-    </ContentPage.BindingContext>
-
     <StackLayout Padding="25" Spacing="18" VerticalOptions="Center">
 
         <Frame x:Name="FlashcardFrame"
